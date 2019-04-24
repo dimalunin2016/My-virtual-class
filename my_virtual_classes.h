@@ -57,6 +57,10 @@
 
 
 #define VIRTUAL_CALL(class_ptr, func_name)                          \
+  if ((class_ptr)->virtual_table_[#func_name].first == nullptr) {   \
+    std::cout << "No such function" <<"\n";                         \
+    assert(0);                                                      \
+  }                                                                 \
   if ((class_ptr)->type_ >=                                         \
       (class_ptr)->virtual_table_[#func_name].second) {             \
     ((class_ptr)->virtual_table_[#func_name].first)(class_ptr);     \
