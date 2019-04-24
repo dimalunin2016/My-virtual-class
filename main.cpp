@@ -39,11 +39,11 @@ int main() {
 
   // полиморфизм
   Base* reallyDerived = reinterpret_cast<Base*>(&derived);
-
-	VIRTUAL_CALL(&base, Both); // печатает “Base::Both a = 0”
-	VIRTUAL_CALL(reallyDerived, Both); // печатает “Derived::Both b = 1”
-	VIRTUAL_CALL(reallyDerived, OnlyBase);  // печатает “Base::OnlyBase”
-	VIRTUAL_CALL(reallyDerived, OnlyDerived);
+  
+  VIRTUAL_CALL(&base, Both); // печатает “Base::Both a = 0”
+  VIRTUAL_CALL(reallyDerived, Both); // печатает “Derived::Both b = 1”
+  VIRTUAL_CALL(reallyDerived, OnlyBase);  // печатает “Base::OnlyBase”
+  VIRTUAL_CALL(reallyDerived, OnlyDerived); // бросает исключение
 
   return 0;
 }
